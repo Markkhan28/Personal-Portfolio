@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <style>
+        .game {
+            text-align: center;
+            margin: 20px auto;
+            color: rgb(41, 115, 115);
+            font-family: "Poppins", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            font-size: 1.9vw;
+        }
+
+        .game button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgb(41, 115, 115);
+            color: white;
+            border: gold;
+        }
+
+        #game-result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="name"><h3>Welcome to my website</h3></div>
+        <div class="navheader">
+            <div><a href="">Home</a></div>
+            <div><a href="/About.html" target="_blank">About</a></div>
+            <div><a href="/Projects.html">Projects</a></div>
+            <div><a href="">Contact</a></div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <p><img src="./IMG-20231031-WA0002.jpg" alt="profile photo">Hi, I am Mohammad and I am a passionate Front-end Web Developer <br> <span id="element"></span></p>
+        </div>
+
+        <div class="skills">
+            <table>
+                <div><caption>SKILLS</caption></div>
+                <tr>
+                    <th>Programming Languages</th>
+                    <th>Databases</th>
+                    <th>Software Tools</th>
+                    <th>Operating Systems</th>
+                    <th>Cloud Platforms</th>
+                </tr>
+                <tr>
+                    <td>Python</td>
+                    <td>MySQL</td>
+                    <td>Packet Tracer</td>
+                    <td>Windows</td>
+                    <td>Microsoft Azure</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>MongoDB</td>
+                    <td>LTSpice</td>
+                    <td>Linux</td>
+                    <td>Amazon Web</td>
+                </tr>
+                <tr>
+                    <td>C++</td>
+                    <td></td>
+                    <td>Matlab</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>HTML5</td>
+                    <td></td>
+                    <td>BurpSuite</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>CSS</td>
+                    <td></td>
+                    <td>Wireshark</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>ReactJS</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <div class="game">
+            <h2>Let's Play Rock-Paper-Scissors game</h2>
+            <button onclick="playGame('rock')">Rock</button>
+            <button onclick="playGame('paper')">Paper</button>
+            <button onclick="playGame('scissors')">Scissors</button>
+            <p id="game-result"></p>
+        </div>
+
+    </main>
+    <div class="foot">   
+         <p class="end">Copyright &copy; | www.mohammadportfolio.com | All rights reserved </p>
+    </div>
+    
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['Front-end Web Developer','Software Engineer','Football Enthusiast' ],
+          typeSpeed: 50,
+        });
+
+        function getComputerChoice() {
+            const choices = ["rock", "paper", "scissors"];
+            const randomIndex = Math.floor(Math.random() * 3);
+            return choices[randomIndex];
+        }
+
+        function determineWinner(playerChoice, computerChoice) {
+            if (playerChoice === computerChoice) {
+                return "It's a tie!";
+            }
+            
+            if (
+                (playerChoice === "rock" && computerChoice === "scissors") ||
+                (playerChoice === "scissors" && computerChoice === "paper") ||
+                (playerChoice === "paper" && computerChoice === "rock")
+            ) {
+                return "You win!";
+            } else {
+                return "Computer wins!";
+            }
+        }
+
+        function playGame(playerChoice) {
+            const computerChoice = getComputerChoice();
+            const result = determineWinner(playerChoice, computerChoice);
+            document.getElementById("game-result").innerText = `You chose: ${playerChoice} \nComputer chose: ${computerChoice} \n${result}`;
+        }
+    </script>
+
+</body>
+</html>
